@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  font: 300 14px/21px Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+input:focus {
+  outline: none;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-success {
+  background-color: #ebf5eb;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+
+.p-15 {
+  padding: 15px;
+}
+
+.pl-15 {
+  padding-left: 15px;
+}
+
+.plr-15 {
+  padding: 0 15px;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.color-white {
+  color: white;
+}
+
+.t-center {
+  text-align: center;
+}
+
+.t-right {
+  text-align: right;
+}
+
+.br-standart {
+  border-right: 1px solid #e6e6e6;
+}
+
+.bb-standart {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.h-50 {
+  height: 50px;
+}
+
+.content-end {
+  justify-content: flex-end;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.mr-15 {
+  margin-right: 15px;
+}
+
+.ml-15 {
+  margin-left: 15px;
+}
+
+button.close svg * {
+  stroke: #999999;
+}
+
+button.close:hover {
+  cursor: pointer;
+}
+
+button.close:hover svg * {
+  stroke: #666666;
+}
+
+.modal.show {
+  opacity: 1;
+}
+
+.cursor-pointer input, .cursor-pointer a {
+  cursor: pointer;
+}

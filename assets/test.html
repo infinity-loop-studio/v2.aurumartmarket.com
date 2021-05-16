@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>тайтл</title>
+  <script>
+    window.onblur = function () {
+      document.title = 'неактивен';
+    };
+    window.onfocus = function () {
+      document.title = 'активен';
+    };
+    window.onbeforeunload = (e) => {
+      return "Данные не сохранены. Точно перейти?";
+    };
+  </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<div class="breadcrumbs bg-3">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+         class="svg-inline--fa fa-map-marker-alt fa-w-12 fa-2x" width="10px" style="color: #696e6e">
+        <path fill="currentColor"
+              d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+              class=""></path>
+    </svg>
+    <span>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+             class="svg-inline--fa fa-map-marker-alt fa-w-12 fa-2x" width="10px" style="color: #696e6e">
+            <path fill="currentColor"
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                  class=""></path>
+        </svg>
+        <a href="/">Главная</a></span>
+    <span>
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+             class="svg-inline--fa fa-map-marker-alt fa-w-12 fa-2x" width="10px" style="color: #696e6e">
+            <path fill="currentColor"
+                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                  class=""></path>
+        </svg>
+        <a href="/">Каталог уроков</a></span>
+</div>
+<div class="d-flex plr-15">
+    <div style="width: 25%">
+        <div class="box-shadow bg-white">
+            <h1 class="bg-2 color-white p-15 m-0">Подобрать урок</h1>
+        </div>
+    </div>
+    <!-- MAIN SECTION -->
+    <div class="pl-15" style="width: 75%">
+        <!-- IF CART HAVE LESSONS OR COURSES -->
+        <% if (cart.lessons !== false || cart.courses !== false) { %>
+            <!-- IF USER LOGGED IN-->
+            <% if (req.session.loggedIn){ %>
+                <!-- IF USER ACCOUNT IS NOT ACTIVATED-->
+                <% if (!req.session.activation){ %>
+                    <div class="p-15 login-section-notification" style="height: 55px; background-color: #f6dfdd; margin-bottom: 15px;">
+                        <div>
+                            Осуществлять покупки могут пользователи которые прошли активацию своей учётной записи.
+                            <b>Пожалуйста откройте письмо, которое мы отправили, на указанный вами адрес электронной почты и нажмите "Подтвердить E-mail".</b>
+                        </div>
+                    </div>
+                <% } %>
+                <!-- IF USER ACCOUNT IS ACTIVATED-->
+            <% } else { %>
+                <div class="p-15 login-section-notification" style="height: 55px; background-color: #d8eafc; margin-bottom: 15px;">
+                    <div>Осуществлять покупки могут только зарегистрированные пользователи. Пожалуйста осуществите вход, или пройдите регистрацию.</div>
+                    <div class="mt-15">Тут вы можете <a href="">Войти</a> или <a href="">Пройти регистрацию</a></div>
+                </div>
+            <% } %>
+        <% } %>
+
+        <% if (cart.lessons === false && cart.courses === false) { %>
+            <div class="p-15 login-section-notification" style="height: 55px; background-color: #d8eafc; margin-bottom: 15px;">
+                <div>В вашей корзине ничего нет.</div>
+                <div class="mt-15">Тут вы можете перейти в раздел: <a href="/ru/lessons">Уроки</a>, <a href="/ru/courses">Курсы</a> или <a href="/ru/pictures">Картины</a></div>
+            </div>
+        <% } %>
+
+        <% if (cart.lessons !== false || cart.courses !== false){ %>
+            <div>
+                <h1 class="bg-2 color-white p-15 m-0">Корзина</h1>
+                <div class="bg-white box-shadow d-flex flex-wrap">
+                    <% _.each(cart.lessons, function (lesson){ %>
+                        <div class="cart-item bb-standart">
+                            <div class="p-15 d-flex">
+                                <div class="d-flex"><img src="/images/lessons/<%= lesson.systemName; %>/main.jpg" width="100px"></div>
+                                <div class="plr-15">
+                                    <p class="m-0"><%= lesson.name %></p>
+                                    <p class="m-0">Цена:<%= lesson.price %></p>
+                                    <button>Удалить из корзины</button>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                    <% _.each(cart.courses, function (course){ %>
+                        <div class="cart-item bb-standart">
+                            <div class="p-15 d-flex">
+                                <div class="d-flex"><img src="/images/lessons/<%= course.systemName; %>/main.jpg" width="100px"></div>
+                                <div class="plr-15">
+                                    <p class="m-0"><%= course.name %></p>
+                                    <p class="m-0">Цена:<%= course.price %></p>
+                                    <button>Удалить из корзины</button>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        <% } %>
+
+        <% if (cart.lessons !== false || cart.courses !== false){ %>
+            <% if (req.session.activation){ %>
+                <button name="addtocart" type="submit" value="" title="В корзину" class="pay-button mt-15">Оплатить заказ</button>
+            <% } %>
+        <% } %>
+    </div>
+</div>

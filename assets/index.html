@@ -1,0 +1,33 @@
+<html>
+<head></head>
+<body><h1>Widget</h1>
+<script defer="" async="" id="widget-wfp-script" language="javascript" type="text/javascript" onload="wfpInit()" src="https://secure.wayforpay.com/server/pay-widget.js"></script>
+<script type="text/javascript">
+  var wfpPay = function () {
+    wayforpay.run({
+        merchantAccount: 'v2_aurumartmarket_com',
+        merchantDomainName: 'v2.aurumartmarket.com',
+        orderReference: 'FIRST_TEST_UID8O1T1',
+        orderDate: 1615058315851,
+        amount: 1.02,
+        currency: 'USD',
+        productName: [
+          'Страна моего детства 1',
+          'Страна моего детства 2',
+          'Тестовый курс'
+        ],
+        productCount: [ 1, 1, 1 ],
+        productPrice: [ 0.34, 0.34, 0.34 ],
+        returnUrl: 'https://v2.aurumartmarket.com',
+        serviceUrl: 'https://v2.aurumartmarket.com/wfp',
+        clientFirstName: 'Станислав Щербаков',
+        clientEmail: 'my.infinityloop.studio@gmail.com',
+        clientPhone: '380960037777',
+        merchantSignature: '236eb30b94e516957ecae499563ad5b8'
+      }
+    );
+  };
+</script>
+<button class="btn btn-primary" type="button" onclick="wfpPay();">Pay</button>
+</body>
+</html>
